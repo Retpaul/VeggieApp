@@ -24,7 +24,7 @@ const categoryProducts = [
   {
     img: "/products/product4.png",
     price: "500",
-    name: "Nutty Snack",
+    name: "Nutty Snack"
   },
 ];
 
