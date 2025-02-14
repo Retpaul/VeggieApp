@@ -19,12 +19,12 @@ const categoryProducts = [
   {
     img: "/products/product3.png",
     price: "1000",
-    name: "Super Green Smoothie",
+    name: "Super Green Smoothie"
   },
   {
     img: "/products/product4.png",
     price: "500",
-    name: "Nutty Snack",
+    name: "Nutty Snack"
   },
 ];
 

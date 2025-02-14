@@ -1,51 +1,43 @@
-import { RiAccountPinCircleFill } from "react-icons/ri";
-import { PiBasketDuotone } from "react-icons/pi";
-import { FaWallet } from "react-icons/fa";
-import { BsFillQuestionCircleFill } from "react-icons/bs";
-import { BiBookmarkAlt } from "react-icons/bi";
+"use client";
+import React, { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { RiDiscordFill } from "react-icons/ri";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
-const profileLinks = [
-  {
-    icons: <RiAccountPinCircleFill />,
-    title: "Account",
-  },
-  {
-    icons: <PiBasketDuotone />,
-    title: "Orders",
-  },
-  {
-    icons: <FaWallet />,
-    title: "Wallet",
-  },
-  {
-    icons: <BiBookmarkAlt />,
-    title: "Privacy Policy",
-  },
-  {
-    icons: <BsFillQuestionCircleFill />,
-    title: "Support",
-  },
-];
-export default function Profile() {
+export default function page() {
+  const [isLogin, setIsLogin] = useState(true);
   return (
-    <div className="relative">
-      <div className="flex justify-between">
-        <div className="absolute h-[239px] w-16 rounded-[26px] bg-[#797652] -top-10 -left-10" />
-
-        <div className=" absolute -right-20 -top-7 h-[70px] rounded-[30px] bg-[#797652] w-32 "/>
+    <div className=" bg-[#CFD0CB] h-dvh">
+      <div className="shadow-xl rounded-b-[30px]    h-[35vh]  font-itim  bg-[#D9D9D9]">
+        <div className="flex justify-center items-center h-4/5 ">
+          <img src="/tree.png" alt="" className="" />
+        </div>
+        <div className="flex justify-evenly  h-1/5 ">
+          <div className="h-full flex flex-col justify-between">
+            <button
+              className="text-2xl text-black text-bold light"
+              onClick={() => setIsLogin(true)}
+            >
+              Login
+            </button>
+            {isLogin && <hr className="bg-brand2 h-1 w-full" />}
+          </div>
+          <div className="h-full flex flex-col justify-between">
+            <button
+              className="font-itim text-2xl text-slate-800"
+              onClick={() => setIsLogin(false)}
+            >
+              {" "}
+              Sign Up
+            </button>
+            {!isLogin && <hr className="bg-brand2 h-1 w-full" />}
+          </div>
+        </div>
       </div>
 
-      <div className="w-fit flex flex-col gap-5 font-itim justify-center ml-8 pt- ">
-        {profileLinks.map((item, idx) => (
-          <div className="flex gap-2 " key={idx}>
-            <span className="text-3xl text-gray-600">{item.icons}</span>
-            <div className="text-3xl space-y-3">
-              <span>{item.title}</span>
-              <hr className="bg-black w-28" />
-            </div>
-          </div>
-        ))}
-        <div className="absolute border px-16 py-52 h-[52px] rounded-2xl bg-brand2/50"/>
+      <div className="p-16 flex flex-col justify-evenly h-[62vh] ">
+        {isLogin ? <LoginForm /> : <RegisterForm />}
       </div>
     </div>
   );
